@@ -1,3 +1,5 @@
+# THIS IS A DRAFT
+
 # About
 
 This Java project enables the user to:
@@ -27,6 +29,11 @@ Or, you can use the official [Pi Imager](https://www.raspberrypi.com/software/) 
 *Source: https://www.raspberrypi.com/software/*
 
 In this project's case, make sure you are not running a headless version (that means not having any desktop environment installed).
+
+### 2.1 Useful reads before moving to the next steps
+
+- [Using GPIO pins to interact with hardware](https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header)
+- [Remote Access](https://www.raspberrypi.com/documentation/computers/remote-access.html)
 
 ### 3. Java
 The most recent build of the RPi OS should already come wtih a Java Run-Time Environment preinstalled, make sure you have it installed by chekcing the version:
@@ -62,7 +69,12 @@ sudo apt-get install pi4j
 sudo pi4j --update
 ```
 
-### Useful Reads
+### 6. Setting up the hardware
 
-- [Using GPIO pins to interact with hardware](https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header)
-- [Remote Access](https://www.raspberrypi.com/documentation/computers/remote-access.html)
+Use PiOled (in case I manage to make remote control)
+- After setting up the Pi insert it into the Waveshare Relay Board and secure it with the included screws
+Add photos
+- Attach the power pinds of the Relay board to a regulated 5V x Amp power supply
+Add photos
+- If you have only a 12V power supply at hand make sure to use a step down converter such as the LM2596 (supports 3A) to bring it down to 5V.
+Add a photo with the converter
