@@ -1,13 +1,7 @@
-# THIS IS A DRAFT
-
 # About
 
-This Java project enables the user to:
-
-- control relays via a graphical user intreface 
-- trigger a relay automatically with the help of an event listener. 
-
-The program is meant to be used on the Raspberry Pi 4, which ia SBC (Single Board Computer) made by the Raspberry Pi Foundation, based in England, Cambridge.
+This Java project enables the user to control relays via a graphical user intreface and have the state of the relays displayed. 
+It is meant to be used on the Raspberry Pi 4, which is an SBC (Single Board Computer) made by the Raspberry Pi Foundation, based in England, Cambridge.
 
 ## Setup
 
@@ -71,10 +65,54 @@ sudo pi4j --update
 
 ### 6. Setting up the hardware
 
-Use PiOled (in case I manage to make remote control)
+In case you want to connect remotely to the Pi and have some useful info on a physical display then the PiOled is a great addition. It requires Python, the pip manager and a package made by [Adafruit](learn.adafruit.com).
+
+![image](https://user-images.githubusercontent.com/59418297/212502961-5b34d903-db63-4a1a-9fa8-4d5b46090d6b.png)\
+*Source: https://www.adafruit.com/product/3527*
+
+- Install the OLED Package
+```console
+sudo apt-get install python3-pip
+sudo pip3 install adafruit-circuitpython-ssd1306
+```
+- Enable I2C bus from the Configuration tab
+- Reboot
+- Check for the OLED on the I2C bus
+```console
+sudo i2cdetect -y 1
+```
+- To make the script from the package to run on startup:
+```console
+sudo nano /etc/rc.local
+```
+- Then add the line
+```console
+sudo python3 /{folder_where_you_saved_the_script}/stats.py &
+```
+
+
+
 - After setting up the Pi insert it into the Waveshare Relay Board and secure it with the included screws
-Add photos
-- Attach the power pinds of the Relay board to a regulated 5V x Amp power supply
-Add photos
+
+- Connect the power pins of the relay board to a regulated 5V 3A PSU (or the official USB C 5V 3A Pi power brick)
+
 - If you have only a 12V power supply at hand make sure to use a step down converter such as the LM2596 (supports 3A) to bring it down to 5V.
-Add a photo with the converter
+
+![image](https://user-images.githubusercontent.com/59418297/212502116-4da22583-04cb-41bf-b3a0-a2cfc46892d0.png)
+
+### 7. Using the app
+
+1. Open the terminal
+
+2. Compile the source in the direcory where you downloaded the file. This will create ```relay_GUI.class```
+```console
+javac relay_GUI.java
+```
+3. Run the app with:
+```console
+java relay_GUI
+```
+4. All relays are off by default, turn them on by clicking the buttons, the state is displayed on the button. 
+![image](https://user-images.githubusercontent.com/59418297/212502496-29ac5730-ce85-4d09-98d2-8a37e8c22607.png)
+![IMG_0109](https://user-images.githubusercontent.com/59418297/212502539-fae05180-d9a7-4943-a244-b755bd679f0c.jpg)
+
