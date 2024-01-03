@@ -8,7 +8,7 @@ It is meant to be used on the Raspberry Pi 4, which is an SBC (Single Board Comp
 ### 1. Necessary hardware
 
 - Raspberry Pi 4
-- Micro SD card, minimally 16Gb b
+- Micro SD card, minimally 16Gb
 - Another computer to write the system image on the Micro SD card.
 - Power supply (5V, 3A - for Pi 4)
 - Monitor, keyboard, mouse
